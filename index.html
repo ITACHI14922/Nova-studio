@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#090812">
+  <meta name="description" content="NOVA Studio builds modern websites and AI-powered brand creatives for ambitious businesses.">
+  <title>NOVA Studio — Websites & AI Creatives</title>
+  <style>
+    :root{--bg:#090812;--panel:#11101d;--panel2:#171528;--text:#f6f4ff;--muted:#aaa6bd;--purple:#9b5cff;--blue:#38bdf8;--line:rgba(255,255,255,.1);--grad:linear-gradient(110deg,#a855f7,#3b82f6)}
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:var(--bg);color:var(--text);line-height:1.6;overflow-x:hidden}
+    a{color:inherit;text-decoration:none}
+    .container{width:min(1120px,calc(100% - 44px));margin:auto}
+    .nav-wrap{position:sticky;top:0;z-index:20;background:rgba(9,8,18,.78);backdrop-filter:blur(18px);border-bottom:1px solid var(--line)}
+    nav{height:76px;display:flex;align-items:center;justify-content:space-between}
+    .brand{display:flex;align-items:center;gap:11px;font-weight:800;letter-spacing:.13em;font-size:1.03rem}
+    .brand-mark{width:31px;height:31px;border-radius:10px;background:var(--grad);display:grid;place-items:center;color:white;font-size:17px;box-shadow:0 0 25px #8b5cf655}
+    .nav-links{display:flex;gap:30px;align-items:center;color:#d0ccdc;font-size:.9rem}
+    .nav-links a:hover{color:white}
+    .nav-cta,.btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;border-radius:999px;padding:12px 19px;font-weight:700;font-size:.9rem;transition:.25s ease}
+    .nav-cta,.btn-primary{background:var(--grad);color:white;box-shadow:0 8px 28px #6d45d344}
+    .nav-cta:hover,.btn-primary:hover{transform:translateY(-3px);box-shadow:0 12px 34px #6d45d366}
+    .menu-btn{display:none;background:none;border:1px solid var(--line);color:white;border-radius:10px;padding:8px 11px;font-size:1.2rem}
+    .hero{position:relative;padding:112px 0 104px;overflow:hidden}
+    .hero:before{content:"";position:absolute;width:580px;height:580px;border-radius:50%;background:#7c3aed26;filter:blur(95px);top:-240px;right:-100px;pointer-events:none}
+    .hero:after{content:"";position:absolute;width:400px;height:400px;border-radius:50%;background:#0284c726;filter:blur(100px);bottom:-260px;left:-180px;pointer-events:none}
+    .hero-inner{position:relative;z-index:1;max-width:790px}
+    .eyebrow{display:inline-flex;align-items:center;gap:9px;border:1px solid #9b5cff55;background:#9b5cff12;border-radius:999px;padding:7px 13px;color:#d7baff;font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;font-weight:700}
+    .dot{width:7px;height:7px;border-radius:50%;background:#67e8f9;box-shadow:0 0 12px #67e8f9}
+    h1{font-size:clamp(3rem,7vw,5.9rem);line-height:1.02;letter-spacing:-.065em;margin:25px 0 22px;font-weight:850}
+    .gradient-text{background:linear-gradient(100deg,#c084fc 10%,#60a5fa 85%);-webkit-background-clip:text;background-clip:text;color:transparent}
+    .hero p{font-size:1.12rem;color:var(--muted);max-width:620px}
+    .hero-actions{display:flex;gap:13px;flex-wrap:wrap;margin-top:33px}
+    .btn-secondary{border:1px solid var(--line);background:#ffffff08;color:#eeeaf8}
+    .btn-secondary:hover{background:#ffffff13;transform:translateY(-3px)}
+    .hero-note{margin-top:27px;color:#89849e;font-size:.82rem}
+    section{padding:88px 0}
+    .section-head{max-width:650px;margin-bottom:38px}
+    .kicker{font-size:.76rem;letter-spacing:.16em;text-transform:uppercase;color:#b58aff;font-weight:800}
+    h2{font-size:clamp(2rem,4vw,3.15rem);letter-spacing:-.045em;line-height:1.12;margin:12px 0}
+    .section-head p{color:var(--muted);margin-top:12px}
+    .grid{display:grid;grid-template-columns:repeat(2,1fr);gap:17px}
+    .service,.project,.step{background:linear-gradient(145deg,#171528,#100f1a);border:1px solid var(--line);border-radius:20px;padding:27px;transition:transform .3s,border-color .3s,background .3s}
+    .service:hover,.project:hover,.step:hover{transform:translateY(-5px);border-color:#9b5cff77}
+    .icon{width:43px;height:43px;border-radius:13px;background:linear-gradient(135deg,#9b5cff30,#38bdf820);display:grid;place-items:center;font-size:1.2rem;margin-bottom:19px}
+    h3{font-size:1.13rem;margin-bottom:9px;letter-spacing:-.02em}
+    .service p,.project p,.step p{color:var(--muted);font-size:.93rem}
+    .work-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:17px}
+    .project{padding:15px;overflow:hidden}
+    .project-art{height:185px;border-radius:13px;margin-bottom:18px;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
+    .art-real{background:radial-gradient(circle at 70% 25%,#b68aff88,transparent 33%),linear-gradient(135deg,#24203c,#111827)}
+    .art-cafe{background:radial-gradient(circle at 30% 30%,#f59e0b66,transparent 30%),linear-gradient(135deg,#38251f,#151018)}
+    .art-skin{background:radial-gradient(circle at 70% 25%,#f9a8d477,transparent 30%),linear-gradient(135deg,#382438,#171321)}
+    .mock-window{width:72%;height:70%;border:1px solid #ffffff55;border-radius:9px;background:#ffffff12;backdrop-filter:blur(8px);padding:12px;box-shadow:0 15px 35px #0005;transform:rotate(-4deg)}
+    .mock-line{height:6px;border-radius:5px;background:#ffffffaa;width:44%;margin:8px 0}
+    .mock-line.long{width:78%;height:9px}
+    .mock-block{height:45px;border-radius:5px;background:#ffffff2a;margin-top:12px}
+    .project-tag{display:inline-block;font-size:.7rem;color:#cbb4ff;background:#9b5cff18;border:1px solid #9b5cff44;padding:4px 9px;border-radius:999px;margin-bottom:10px}
+    .project h3{margin-bottom:5px}
+    .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+    .step-num{font-size:.78rem;color:#b58aff;font-weight:800;letter-spacing:.12em;margin-bottom:18px}
+    .contact{background:radial-gradient(ellipse at 15% 0%,#7c3aed24,transparent 48%),linear-gradient(145deg,#151326,#0d0c16);border:1px solid var(--line);border-radius:26px;padding:clamp(28px,6vw,60px);display:flex;justify-content:space-between;align-items:center;gap:30px}
+    .contact-copy{max-width:590px}
+    .contact-copy p{color:var(--muted);margin-top:12px}
+    .contact-actions{display:flex;flex-direction:column;gap:11px;min-width:185px}
+    footer{padding:35px 0 42px;border-top:1px solid var(--line);color:#89849e;font-size:.82rem}
+    .footer-inner{display:flex;justify-content:space-between;gap:18px;flex-wrap:wrap}
+    .reveal{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s ease}
+    .reveal.visible{opacity:1;transform:translateY(0)}
+    @media(max-width:760px){
+      .nav-links{display:none;position:absolute;top:76px;left:0;right:0;padding:18px 22px 23px;background:#0e0d18;border-bottom:1px solid var(--line);flex-direction:column;align-items:stretch;gap:17px}
+      .nav-links.open{display:flex}.nav-cta{display:none}.menu-btn{display:block}
+      .hero{padding:82px 0 76px}.hero p{font-size:1rem}
+      section{padding:68px 0}.grid,.work-grid,.steps{grid-template-columns:1fr}
+      .project-art{height:205px}.contact{align-items:stretch;flex-direction:column}.contact-actions{min-width:0}
+    }
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{transition:none!important;animation:none!important}.reveal{opacity:1;transform:none}}
+  </style>
+</head>
+<body>
+  <div class="nav-wrap">
+    <nav class="container">
+      <a class="brand" href="#home" aria-label="NOVA Studio home"><span class="brand-mark">N</span><span>NOVA STUDIO</span></a>
+      <div class="nav-links" id="navLinks">
+        <a href="#services">Services</a><a href="#work">Our work</a><a href="#process">Process</a><a href="#contact">Contact</a>
+      </div>
+      <a class="nav-cta" href="#contact">Let's talk <span>↗</span></a>
+      <button class="menu-btn" id="menuBtn" aria-label="Open navigation" aria-expanded="false">☰</button>
+    </nav>
+  </div>
+
+  <main>
+    <header class="hero" id="home">
+      <div class="container">
+        <div class="hero-inner">
+          <div class="eyebrow"><span class="dot"></span> Digital presence, reimagined</div>
+          <h1>Make your brand<br><span class="gradient-text">impossible to ignore.</span></h1>
+          <p>We create modern websites and scroll-stopping AI-powered visuals that help businesses show up with confidence.</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#contact">Start a project <span>↗</span></a>
+            <a class="btn btn-secondary" href="#work">Explore our work <span>↓</span></a>
+          </div>
+          <div class="hero-note">Web design · Digital experiences · AI creatives</div>
+        </div>
+      </div>
+    </header>
+
+    <section id="services">
+      <div class="container">
+        <div class="section-head reveal"><div class="kicker">What we do</div><h2>Creative thinking.<br><span class="gradient-text">Digital results.</span></h2><p>From your first online presence to your next campaign, we help turn ideas into a polished brand experience.</p></div>
+        <div class="grid">
+          <article class="service reveal"><div class="icon">✳</div><h3>Website design & development</h3><p>Clean, responsive websites designed to introduce your business, build trust and make it easy for customers to reach you.</p></article>
+          <article class="service reveal"><div class="icon">✦</div><h3>AI-powered brand creatives</h3><p>Fresh visual content and campaign concepts that give your brand a distinctive look across digital platforms.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="work">
+      <div class="container">
+        <div class="section-head reveal"><div class="kicker">Selected concepts</div><h2>Ideas brought <span class="gradient-text">to life.</span></h2><p>A few sample directions showing how NOVA can shape digital experiences for different kinds of businesses.</p></div>
+        <div class="work-grid">
+          <article class="project reveal"><div class="project-art art-real"><div class="mock-window"><div class="mock-line"></div><div class="mock-line long"></div><div class="mock-block"></div></div></div><span class="project-tag">Concept project</span><h3>Real estate website</h3><p>A refined property landing page focused on clarity, trust and enquiries.</p></article>
+          <article class="project reveal"><div class="project-art art-cafe"><div class="mock-window"><div class="mock-line"></div><div class="mock-line long"></div><div class="mock-block"></div></div></div><span class="project-tag">Concept project</span><h3>Café social campaign</h3><p>A warm visual direction built to make a local café stand out online.</p></article>
+          <article class="project reveal"><div class="project-art art-skin"><div class="mock-window"><div class="mock-line"></div><div class="mock-line long"></div><div class="mock-block"></div></div></div><span class="project-tag">Concept project</span><h3>Skincare product visuals</h3><p>A clean product-led creative concept with a premium feel.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="process">
+      <div class="container">
+        <div class="section-head reveal"><div class="kicker">How it works</div><h2>Simple from <span class="gradient-text">start to finish.</span></h2><p>A clear process keeps every project focused and easy to follow.</p></div>
+        <div class="steps">
+          <article class="step reveal"><div class="step-num">01 / DISCOVER</div><h3>Understand the goal</h3><p>We learn about your business, audience and what you want to achieve.</p></article>
+          <article class="step reveal"><div class="step-num">02 / CREATE</div><h3>Design & build</h3><p>We shape the visual direction and create a digital experience around your brief.</p></article>
+          <article class="step reveal"><div class="step-num">03 / DELIVER</div><h3>Review & launch</h3><p>We refine the details with your feedback and prepare the final work.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container">
+        <div class="contact reveal">
+          <div class="contact-copy"><div class="kicker">Have a project in mind?</div><h2>Let's make something <span class="gradient-text">stand out.</span></h2><p>Tell us what you're building. We'll get back to you and discuss the next step.</p></div>
+          <div class="contact-actions">
+            <a class="btn btn-primary" href="tel:+918600030402">Call 8600030402 ↗</a>
+            <a class="btn btn-secondary" href="https://wa.me/919028331330" target="_blank" rel="noopener noreferrer">WhatsApp 90283 31330 ↗</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer><div class="container footer-inner"><div>© <span id="year"></span> NOVA Studio. All rights reserved.</div><div>Built for what’s next.</div></div></footer>
+
+  <script>
+    const menuBtn=document.getElementById('menuBtn');
+    const navLinks=document.getElementById('navLinks');
+    menuBtn.addEventListener('click',()=>{const open=navLinks.classList.toggle('open');menuBtn.setAttribute('aria-expanded',String(open));menuBtn.textContent=open?'✕':'☰';});
+    navLinks.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{navLinks.classList.remove('open');menuBtn.setAttribute('aria-expanded','false');menuBtn.textContent='☰';}));
+    document.getElementById('year').textContent=new Date().getFullYear();
+    const observer=new IntersectionObserver(entries=>entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('visible');observer.unobserve(entry.target);}}),{threshold:.12});
+    document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
+  </script>
+</body>
+</html>
